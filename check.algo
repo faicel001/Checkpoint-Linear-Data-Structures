@@ -1,0 +1,88 @@
+//problem1 solution2
+ALGORITHM prob1
+VAR
+t1,t2 : ARRAY_OF integer[50];
+i,j,x,y,sum: integer;
+lt1 :integer:=5
+lt2 :integer:=8
+BEGIN
+    FOR x FROM 1 TO lt1 DO
+        write("donner une valeur")
+        read(t1[i])
+    END_FOR
+    FOR y FROM 1 TO lt2 DO
+        write("donner une valeur")
+        read(t2[i])
+    END_FOR
+    ok:=false
+    sum:=0
+    FOR i FROM 1 TO lt1 DO
+    ok:=false
+    FOR j FROM 1 TO lt2 DO
+            IF (t1[i]=t2[J]) THEN
+                ELSE ok:=true
+            END_IF
+    END_FOR
+        IF (ok) THEN
+            sum:=sum+lt1[i]
+        END_IF
+    END_FOR
+END
+
+//problem2 solution1
+ALGORITHM prob2
+VAR
+h : HASH_TABLE<integer,STRING>
+i,j,x,sum: integer;
+lt1 :integer:=5
+lt2 :integer:=8
+BEGIN
+FOR i FROM 1 TO lt1  DO
+        h.insert(t1[i],1)
+    END_FOR
+FOR j FROM 1 TO lt2 DO
+    IF (h.lookup(t2[j])) THEN
+        h.insert(t2[j],2)
+        ELSE 
+            h.insert(t2[j],1)
+    END_IF
+END_FOR
+sum=0
+FOR x FROM 1 TO lt1 DO
+IF (h.get(t1[x])!=1) THEN
+    sum=sum+t1[x]*2
+END_IF
+END_FOR
+END
+
+//problem2 solution2
+ALGORITHM prob2
+VAR
+h : HASH_TABLE<integer,STRING>
+i,j,x,sum1,sum2: integer;
+lt1 :integer:=5
+lt2 :integer:=8
+BEGIN
+FOR i FROM 1 TO lt1  DO
+        h.insert(t1[i],1)
+    END_FOR
+FOR j FROM 1 TO lt2 DO
+    IF (h.lookup(t2[j])) THEN
+        h.insert(t2[j],2)
+        ELSE 
+            h.insert(t2[j],1)
+    END_IF
+END_FOR
+sum1=0
+sum2=0
+FOR x FROM 1 TO lt1 DO
+IF (h.get(t1[x])==1) THEN
+    sum1=sum1+t1[x]
+END_IF
+FOR x FROM 1 TO lt1 DO
+IF (h.get(t2[x])==1) THEN
+    sum2=sum2+t2[x]
+END_IF
+END_FOR
+write(sum1+sum2)
+END
